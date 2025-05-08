@@ -57,7 +57,7 @@ class WebViewScreen extends ConsumerWidget {
                 style: const TextStyle(color: Colors.white),
                 decoration: InputDecoration(
                   filled: true,
-                  fillColor: Colors.black.withOpacity(0.5),
+                  fillColor: Colors.black.withValues(alpha:  0.3),
                   hintText: 'Enter URL',
                   hintStyle: const TextStyle(color: Colors.grey),
                   border: OutlineInputBorder(

@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:demo/features/webview/domain/repositories/webview_repository.dart';
 import 'package:demo/features/webview/data/repositories/webview_repository_impl.dart';
 import 'package:webview_flutter/webview_flutter.dart';
@@ -17,10 +19,10 @@ class WebViewUseCase {
             // Update loading bar
           },
           onPageStarted: (String url) {
-            print('Page started loading: $url');
+            log('Page started loading: $url');
           },
           onPageFinished: (String url) {
-            print('Page finished loading: $url');
+            log('Page finished loading: $url');
             // Inject CSS to improve performance on Fire TV
             _webViewController.runJavaScript('''
               var style = document.createElement('style');
@@ -39,7 +41,7 @@ class WebViewUseCase {
             ''');
           },
           onWebResourceError: (WebResourceError error) {
-            print('Page resource error: ${error.description}');
+            log('Page resource error: ${error.description}');
           },
         ),
       )
@@ -47,7 +49,7 @@ class WebViewUseCase {
       ..addJavaScriptChannel(
         'Toaster',
         onMessageReceived: (JavaScriptMessage message) {
-          print('Received message: ${message.message}');
+          log('Received message: ${message.message}');
         },
       )
       ..loadRequest(Uri.parse('https://dev-signage.lotusdm.com/template/grid-template-1/108'));

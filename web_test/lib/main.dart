@@ -19,10 +19,10 @@ class WebViewPage extends StatefulWidget {
   const WebViewPage({super.key});
 
   @override
-  _WebViewPageState createState() => _WebViewPageState();
+  WebViewPageState createState() => WebViewPageState();
 }
 
-class _WebViewPageState extends State<WebViewPage> {
+class WebViewPageState extends State<WebViewPage> {
   late final WebViewController _controller;
 
   @override
